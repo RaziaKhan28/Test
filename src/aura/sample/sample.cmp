@@ -1,0 +1,27 @@
+<aura:component >
+	<div class="slds-m-around--large">
+  <!--PART 1 for create toggle switch/checkbox form element-->    
+  <div class="slds-form-element">
+    <label class="slds-checkbox_toggle slds-grid">
+      <span class="slds-form-element__label slds-m-bottom_none">Toggle Info</span>
+       <ui:inputCheckbox change="{!c.selectChange}"/>
+      <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+        <span class="slds-checkbox_faux"></span>
+        <span class="slds-checkbox_on">Show</span>
+        <span class="slds-checkbox_off">Hide</span>
+      </span>
+    </label>
+  </div>
+<!--PART 2 : create a Div with slds-hide class, control by toggle checkbox-->        
+   <div aura:id="DivID" class="slds-hide">
+     <ul>
+        <li>account 1</li>
+        <li>account 2</li>
+        <li>account 3</li>
+        <li>account 4</li>
+        <li>account 5</li>    
+     </ul>  
+   </div>
+    
+ </div>
+</aura:component>

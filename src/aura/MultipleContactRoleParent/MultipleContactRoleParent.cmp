@@ -1,0 +1,40 @@
+<aura:component controller="MultipleContactRoleHandler" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global">
+    <!--declare attributes--> 
+   <!-- <aura:attribute name="selectedRecord" type="sObject" default="{}" description="Use,for store SELECTED sObject Record"/
+    <aura:attribute name="selectedRecordId" type="String"/>-->
+    <aura:attribute name="selectedRecordIdList1" type="String" description="Use,for store list of selected sObject Records"/>
+    <aura:attribute name="selectedRecordIdList2" type="String" description="Use,for store list of selected sObject Records"/>
+    <aura:attribute name="selectedRecordIdList3" type="String" description="Use,for store list of selected sObject Records"/>
+    <aura:attribute name="selectedRecordIdList4" type="String" description="Use,for store list of selected sObject Records"/>
+    <aura:attribute name="tempRecordList" type="List" default="{}" description="Use,for store list of selected sObject Records"/>
+    <aura:attribute name="label" type="string" default="Contact Name"/>
+    <aura:attribute name="listOfSearchRecords" type="List" description="Use,for store the list of search records which returns from apex class"/>
+   
+    <!--declare events handlers-->  
+   
+    <aura:handler name="oSelectedRecordEvent" event="c:selectedsObjectRecordEvent" action="{!c.handleComponentEvent}"/>
+   <!-- <label class="slds-form-element__label" for="lookup-348">{!v.label}</label>-->
+    
+    <!-- https://www.lightningdesignsystem.com/components/lookups/ --> 
+   	   <div class="slds-grid" >
+       <div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-2">
+       Contact
+       </div>
+		<div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-2">
+       Role
+       </div>
+      
+    </div>
+     <c:MultipleContactRoleChild selectedRecordIdList="{!v.selectedRecordIdList1}" />
+      <c:MultipleContactRoleChild selectedRecordIdList="{!v.selectedRecordIdList2}" />
+      <c:MultipleContactRoleChild selectedRecordIdList="{!v.selectedRecordIdList3}" />
+      <c:MultipleContactRoleChild selectedRecordIdList="{!v.selectedRecordIdList4}" />    
+       
+       
+       <div class="slds-modal__footer allignButton">
+        <lightning:button label="Save" onclick="{!c.handleSaveContact}" variant="brand" class="slds-m-top--medium"/>
+        <lightning:button label="Cancel" onclick="{!c.handleCancel}" class="slds-m-top--medium" />
+        </div>
+    
+   
+</aura:component>

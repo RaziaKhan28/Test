@@ -1,0 +1,16 @@
+<apex:page standardController="Account" recordsetVar="acc" readOnly="true">
+    <apex:pageBlock >
+    
+     <apex:pageBlockTable value="{!acc}" var="a">
+         <apex:column value="{!a.name}"/>
+         <apex:column value="{!a.Industry}"/>
+         <apex:column value="{!a.Phone}"/>
+     </apex:pageBlockTable>
+     <apex:form >
+   <apex:panelGrid columns="2" >
+         <apex:CommandLink value="Previous" Action="{!previous}"/>
+         <apex:CommandLink value="Next" Action="{!Next}"/>
+   </apex:panelGrid>
+   </apex:form>
+    </apex:pageBlock>
+</apex:page>

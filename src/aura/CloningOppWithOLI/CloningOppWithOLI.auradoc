@@ -1,0 +1,11 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:description>
+        <code>c:CloningOppWithOLI</code> component can be used to clone 
+        the current opportunity with products.
+    </aura:description>
+     
+	<aura:example name="Example1" label="Examples of Clone with Product Component" 
+                  ref="c:CloningOppWithOLI"> 
+	</aura:example>
+</aura:documentation>

@@ -1,0 +1,68 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="CalculateNoOfDays">
+   
+    <lightning:layout >
+        <lightning:layoutItem padding="around-small">
+            <lightning:icon iconName="standard:event"/>
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem class="slds-m-medium--large"> 
+            <p class="slds-page-header__title slds-p-right--x-medium">Recurring Event</p>
+            
+        </lightning:layoutItem> 
+     </lightning:layout> 
+  <lightning:layout >
+    <lightning:input type="toggle" label="Recurring Weekly" name="toggle1" checked="true" onchange="{!c.hideShowToggle}" /> 
+    
+  </lightning:layout>           
+  <div aura:id="DivID" class="!slds-hide">       
+   <lightning:layout >  
+      <lightning:layoutItem padding="around-small">    
+            
+        
+           <div class="slds-grid" >
+           <div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-3 ">
+             <lightning:input type="date" label="Start Date" name="startDate" aura:id="startDate"/> 
+           </div>
+           <div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-3">    
+             <div class="slds-form-element"><lightning:input type="date" label="End Date" name="endDate" aura:id="endDate"/> </div>
+            </div>
+            
+            </div>
+            <div class="slds-grid">
+          
+              Recur every
+                        <div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-3 ">
+                 <lightning:input type="number" label="" name="daysInAWeek" aura:id="week" />
+              </div>
+              <div class="slds-col--padded slds-size--1-of-1 slds-large-size--1-of-3 ">
+             week(s) on:
+                </div>
+            </div>
+             <div class="slds-grid">
+           
+              <lightning:input aura:id="check" type="checkbox" label="Monday" name="mon" checked="false"/> 
+           
+              <lightning:input aura:id="check" type="checkbox" label="Tuesday" name="tues" checked="false"/> 
+            
+              <lightning:input aura:id="check" type="checkbox" label="Wednesday" name="wed" checked="false"/> 
+           
+              <lightning:input aura:id="check" type="checkbox" label="Thursday" name="thur" checked="false"/> 
+              <lightning:input aura:id="check" type="checkbox" label="Friday" name="fri" checked="false"/> 
+              <lightning:input aura:id="check" type="checkbox" label="Saturday" name="sat" checked="false"/> 
+              <lightning:input aura:id="check" type="checkbox" label="Sunday" name="sun" checked="false"/> 
+            </div>
+        
+        </lightning:layoutItem>
+        
+        
+    </lightning:layout>
+    <lightning:layout >
+    <div class="slds-grid">
+    	<lightning:button name="save" label="Save" variant="brand" onclick="{!c.handleSave}"/>
+        <lightning:button name="cancel" label="Cancel"  onclick="{!c.handleCancel}"/>
+    </div>
+    </lightning:layout>
+    </div>     
+ 
+        
+</aura:component>

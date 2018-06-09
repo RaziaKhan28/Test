@@ -1,0 +1,58 @@
+<apex:page standardController="Account" recordSetVar="acc" readOnly="true">
+    <apex:form >
+    <apex:pageBlock title="Account List" id="account_list">
+        Filter: 
+            <apex:selectList value="{! filterId }" size="1">
+                <apex:selectOptions value="{! listViewOptions }"/>
+                <apex:actionSupport event="onchange" reRender="account_list"/>
+            </apex:selectList>
+        
+        <!-- Account List -->
+        <apex:pageBlockTable value="{! acc }" var="a">
+            <apex:column value="{! a.Name }"/>
+            <apex:column value="{! a.Industry}"/>
+            <apex:column value="{! a.Fax }"/>
+            <apex:column value="{! a.Phone }"/>
+        </apex:pageBlockTable>
+        
+        <!-- Pagination -->
+        <table style="width: 100%">
+        <tr>
+        
+            <td>
+               Page: <apex:outputText value=" {!PageNumber} of {! CEILING(ResultSize / PageSize) }"/>
+            </td>            
+        
+            <td align="center">
+            
+            <!-- Previous page -->
+            <!-- active -->
+            <apex:commandLink action="{! Previous }" value="« Previous" rendered="{! HasPrevious }"/>
+            <!-- inactive (no earlier pages) -->
+            <apex:outputText style="color: #ccc;" value="« Previous" rendered="{! NOT(HasPrevious) }"/>
+            
+            &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;  &nbsp;
+            
+            <!-- Next page -->
+            <!-- active -->
+            <apex:commandLink action="{! Next }" value="Next »" rendered="{! HasNext }"/>
+            <!-- inactive (no more pages) -->
+            <apex:outputText style="color: #ccc;" value="Next »" rendered="{! NOT(HasNext) }"/>
+            </td>
+            
+            <td align="right">
+              Records per page:
+            <apex:selectList value="{! PageSize }" size="1">
+                <apex:selectOption itemValue="5" itemLabel="5"/>
+                <apex:selectOption itemValue="2000" itemLabel="2000"/>
+                <apex:actionSupport event="onchange" reRender="account_list"/>
+            </apex:selectList>
+            </td>
+        
+        </tr>
+        </table>
+        
+        
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

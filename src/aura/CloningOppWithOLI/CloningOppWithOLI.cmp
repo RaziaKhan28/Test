@@ -1,0 +1,6 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForRecordHome,flexipage:availableForAllPageTypes,force:hasRecordId"  controller="CloneOppWithOLIController">
+   
+    <aura:handler name="init" value="{!this}" action="{!c.handleClone}"/>
+	<h1>Cloning Opportunity...</h1>
+    
+</aura:component>

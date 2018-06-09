@@ -1,0 +1,67 @@
+<apex:page controller="AccountTable" readOnly="true">
+
+    <apex:form id="myform">
+
+        <apex:pageblock >
+
+            <apex:pageBlockButtons location="Top">
+
+                <apex:commandButton value="Processed" action="{!clickMe}" title="click here" />
+
+            </apex:pageBlockButtons>
+
+            <!-- In our table, we are displaying the Account records -->
+
+            <apex:pageblocktable value="{!Account}" var="cc" >
+
+                <apex:column headerValue="Choose Account">
+
+                    <!-- This is our selected Boolean property in our wrapper class -->
+
+                    <apex:inputCheckbox value="{!cc.bool}"/>
+
+                </apex:column>
+
+                <!-- This is how we access the Account values within our Account container/wrapper -->
+
+                <apex:column value="{!cc.con.Name}"/>
+
+                <apex:column value="{!cc.con.Industry}"/>
+
+            </apex:pageblocktable>
+
+            <apex:pageBlockButtons location="Bottom">
+
+                <apex:commandButton value="First" action="{!Setcon.First}" reRender="myform" />
+
+                <apex:commandButton value="Previous" action="{!Setcon.Previous}" reRender="myform" />
+
+                <apex:commandButton value="Next" action="{!Setcon.Next}" reRender="myform" />
+
+                <apex:commandButton value="Last" action="{!Setcon.Last}" reRender="myform" />
+
+            </apex:pageBlockButtons>
+
+            <apex:outputText >Page Number {!pageNumber} </apex:outputText>
+
+        </apex:pageblock>
+
+        <apex:pageblock >
+
+            <apex:outputPanel rendered="{!display}">
+
+                <apex:pageblocktable value="{!selectedList}" var="w" >
+
+                    <apex:column value="{!w.Name}"/>
+
+                    <apex:column value="{!w.Industry}"/>
+
+                </apex:pageblocktable>
+
+            </apex:outputPanel>
+
+        </apex:pageblock>
+
+    </apex:form>
+
+</apex:page>

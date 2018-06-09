@@ -1,0 +1,15 @@
+<apex:page standardController="Task">
+    <apex:form id="theForm">
+        <apex:pageBlock id="thePageBlock">
+           <apex:outputField value="{!Task.Subject}">
+           <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton" />
+            </apex:outputField>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit" action="{!save}" id="editButton" />
+                <apex:commandButton value="Save" action="{!save}" id="saveButton" />
+                <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

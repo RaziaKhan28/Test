@@ -1,0 +1,18 @@
+<apex:page controller="readOnlyRemote" >
+
+    <div id="totalAccountsaa"></div>
+              <script>
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.readOnlyRemote.getRemoteTotalAccounts}',
+                        function(abc){
+                           document.getElementById('totalAccountsaa').innerHTML = abc;
+                                                 
+                            <!-- alert('Total Records: '+result);-->
+                        }
+
+                   );
+                </script>
+    
+     
+     
+</apex:page>

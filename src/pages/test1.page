@@ -1,0 +1,14 @@
+<apex:page standardController="Account" tabStyle="account">
+<style>
+.activeTab {background-color: #236FBD; color:white;
+background-image:none}
+.inactiveTab { background-color: lightgrey; color:black;
+background-image:none}
+</style>
+
+<apex:pageBlock title="Welcome {!$User.FirstName}" >
+    Account name is {!account.Name} and Industry is {!account.industry}
+</apex:pageBlock>
+<apex:detail relatedList="false" title="false" subject="{!account.id}" />
+<apex:relatedList list="Contacts"/>
+</apex:page>

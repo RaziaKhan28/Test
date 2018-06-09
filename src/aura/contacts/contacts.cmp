@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="contact" type="Contact"/>
+    <lightning:card title="{!v.contact.name}" iconName="standard:contact">
+    
+    </lightning:card>
+</aura:component>
